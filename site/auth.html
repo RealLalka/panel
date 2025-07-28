@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GateCx - Аутентификация</title>
+    <link rel="stylesheet" href="assets/main.css">
+</head>
+<body>
+    <div class="page-wrapper auth-page">
+        <div class="auth-container">
+            <div class="auth-form-container">
+                <h1 class="auth-title" id="auth-title">Вход</h1>
+                <form class="auth-form" id="auth-form" novalidate>
+                    <div class="input-group" id="login-group">
+                        <label for="login-input" class="visually-hidden">Логин или Email</label>
+                        <input type="text" id="login-input" placeholder="Введите ваш логин или email" class="input-field auth-input" required>
+                    </div>
+                    <div class="input-group" id="username-group" style="display: none;">
+                        <label for="username-input" class="visually-hidden">Логин</label>
+                        <input type="text" id="username-input" placeholder="Придумайте логин" class="input-field auth-input">
+                    </div>
+                    <div class="input-group" id="email-group" style="display: none;">
+                        <label for="email-input" class="visually-hidden">Email</label>
+                        <input type="email" id="email-input" placeholder="Введите ваш email для регистрации" class="input-field auth-input">
+                    </div>
+                    <div class="input-group">
+                        <label for="password-input" class="visually-hidden">Пароль</label>
+                        <input type="password" id="password-input" placeholder="Введите ваш пароль" class="input-field auth-input" required>
+                    </div>
+                    <div class="input-group" id="clid-group" style="display: none;">
+                        <label for="clid-input" class="visually-hidden">CLID</label>
+                        <input type="text" id="clid-input" placeholder="Введите clid" class="input-field auth-input">
+                    </div>
+                    <p id="error-message" class="error-message"></p>
+                    <button type="submit" class="button button-primary auth-button" id="submit-button">Войти</button>
+                </form>
+                <div class="auth-footer">
+                    <button type="button" class="button-link" id="toggle-form-button">Нет аккаунта? Зарегистрироваться</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/script.js" defer></script>
+    <script src="assets/auth.js" defer></script>
+    <script src="assets/main.js" defer></script>
+</body>
+</html>
