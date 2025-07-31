@@ -27,8 +27,12 @@
 ### Предварительные требования
 - Node.js (рекомендуется LTS-версия)
 - npm (поставляется с Node.js)
+<<<<<<< HEAD
+- **Для пользователей Windows:** Visual Studio Build Tools с установленной рабочей нагрузкой "Разработка классических приложений на C++".
+=======
 - socket.io
 - **Для Windows:** Visual Studio Build Tools с установленной "Разработка классических приложений на C++".
+>>>>>>> baae93bb131e782c77bf7336bb40d52acd69f3e2
 ### 1. Настройка бэкенда
 1. Перейдите в директорию `src`:
     ```
@@ -74,4 +78,8 @@
 - `GET /api/users` - (Админ) Получить список всех пользователей.
 - `PUT /api/users/:id/permissions` - (Админ) Обновить права пользователя.
 - `POST /api/admin/reset-data` - (Админ) Очистить все транзакционные данные из базы данных.
+<<<<<<< HEAD
 - CRUD эндпоинты для `/api/deals`, `/api/disputes`, `/api/requisites` и т.д.
+=======
+- CRUD эндпоинты для `/api/deals`, `/api/disputes`, `/api/requisites` и т.д.
+>>>>>>> baae93bb131e782c77bf7336bb40d52acd69f3e2
