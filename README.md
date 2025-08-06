@@ -78,8 +78,3 @@
 - `GET /api/users` - (Админ) Получить список всех пользователей.
 - `PUT /api/users/:id/permissions` - (Админ) Обновить права пользователя.
 - `POST /api/admin/reset-data` - (Админ) Очистить все транзакционные данные из базы данных.
-<<<<<<< HEAD
-- CRUD эндпоинты для `/api/deals`, `/api/disputes`, `/api/requisites` и т.д.
-=======
-- CRUD эндпоинты для `/api/deals`, `/api/disputes`, `/api/requisites` и т.д.
->>>>>>> baae93bb131e782c77bf7336bb40d52acd69f3e2
