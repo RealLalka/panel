@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
       toggleButton: document.getElementById("toggle-form-button"),
     },
     isLoginView: true,
-    API_BASE_URL: 'http://localhost:4444/api/auth',
+
+    API_BASE_URL: 'https://panelgate.cloudpub.ru/api/auth',
 
     toggleView() {
       this.isLoginView = !this.isLoginView;

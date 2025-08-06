@@ -5,6 +5,16 @@ const bcrypt = require('bcryptjs');
 function setupDatabase() {
     const db = new Database(path.join(__dirname, 'gatecx.db'));
 
+    try {
+        db.exec('ALTER TABLE users ADD COLUMN two_factor_secret TEXT');
+        db.exec('ALTER TABLE users ADD COLUMN two_factor_enabled INTEGER DEFAULT 0');
+        console.log("2FA columns added to users table.");
+    } catch (error) {
+        if (!error.message.includes('duplicate column name')) {
+            console.error("Error altering table:", error);
+        }
+    }
+
     const createUsersTable = `
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -14,6 +24,8 @@ function setupDatabase() {
             clid TEXT,
             role TEXT NOT NULL DEFAULT 'user',
             permissions TEXT,
+            two_factor_secret TEXT,
+            two_factor_enabled INTEGER DEFAULT 0,
             created_at DATETIME DEFAULT CURRENT_TIMESTAMP
         );
     `;

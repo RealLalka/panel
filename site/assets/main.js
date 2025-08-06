@@ -99,16 +99,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 siteApp.socket.on('permissions_updated', (data) => {
-                    console.log('Permissions update received:', data);
-                    alert('Ваши права доступа были обновлены администратором.');
-
+                    console.log('Права обновлены администратором!', data);
                     const currentUserData = siteApp.getUserData();
+
                     if (currentUserData) {
                         currentUserData.permissions = data.permissions;
                         localStorage.setItem('userData', JSON.stringify(currentUserData));
 
-                        siteApp.updateNavigation();
-                        siteApp.checkAuth();
+                        alert('Ваши права доступа были изменены. Страница будет перезагружена.');
+                        window.location.reload();
                     }
                 });
 
@@ -150,5 +149,35 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     };
+    const toggleButton = document.getElementById('currency-toggle');
+    if (toggleButton) {
+        const rubSpan = toggleButton.querySelector('.legend-rub');
+        const usdtSpan = toggleButton.querySelector('.legend-usdt');
+
+        toggleButton.addEventListener('click', () => {
+            rubSpan.classList.toggle('active');
+            usdtSpan.classList.toggle('active');
+        });
+    }
+
+    function initializeTabs(tabsContainer) {
+        tabsContainer.addEventListener('click', (event) => {
+            const clickedTab = event.target.closest('.filter-tab');
+            if (!clickedTab) {
+                return;
+            }
+            const currentActiveTab = tabsContainer.querySelector('.filter-tab.active');
+            if (currentActiveTab && currentActiveTab !== clickedTab) {
+                currentActiveTab.classList.remove('active');
+            }
+            clickedTab.classList.add('active');
+        });
+    }
+
+    const allTabsContainers = document.querySelectorAll('.filter-tabs');
+    allTabsContainers.forEach(container => {
+        initializeTabs(container);
+    });
+
     siteApp.init();
 });
